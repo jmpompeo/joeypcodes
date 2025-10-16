@@ -1,0 +1,54 @@
+---
+const label = 'Toggle site theme';
+---
+
+<button
+  type="button"
+  class="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-surface-dark/80 text-lg transition hover:border-primary focus-visible:border-primary"
+  data-theme-toggle
+  aria-label={label}
+>
+  <span aria-hidden="true" data-theme-icon>🌙</span>
+</button>
+
+<script is:inline>
+  const STORAGE_KEY = 'jp-theme-preference';
+  const root = document.documentElement;
+  const toggle = document.querySelector('[data-theme-toggle]');
+  const icon = document.querySelector('[data-theme-icon]');
+
+  const applyTheme = (theme) => {
+    if (theme === 'light') {
+      root.classList.add('theme-light');
+      icon?.textContent = '☀️';
+    } else {
+      root.classList.remove('theme-light');
+      icon?.textContent = '🌙';
+    }
+    toggle?.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+  };
+
+  const getSystemPreference = () => (
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  );
+
+  const stored = localStorage.getItem(STORAGE_KEY);
+  const initialTheme = stored ?? getSystemPreference();
+  applyTheme(initialTheme);
+
+  toggle?.addEventListener('click', () => {
+    const nextTheme = root.classList.contains('theme-light') ? 'dark' : 'light';
+    applyTheme(nextTheme);
+    localStorage.setItem(STORAGE_KEY, nextTheme);
+  });
+
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', (event) => {
+      const storedTheme = localStorage.getItem(STORAGE_KEY);
+      if (storedTheme) {
+        return;
+      }
+      applyTheme(event.matches ? 'dark' : 'light');
+    });
+</script>

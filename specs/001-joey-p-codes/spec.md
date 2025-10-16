@@ -1,0 +1,72 @@
+---
+feature: Joey P Codes
+goal: Publish a technical portfolio and blog for Joey Pompeo
+---
+
+# User Stories
+
+## P1 — Home Page Snapshot
+
+**As** a hiring manager  
+**I want** to land on a home page that immediately communicates Joey’s focus, skills, and featured work  
+**So that** I can quickly decide whether to explore further or reach out.
+
+### Acceptance Criteria
+- Hero section with headline “C#/.NET engineer building Azure-backed apps.” and supporting subhead.
+- Skill pillar list showing `.NET`, `Azure Functions`, `CI/CD`, `Bicep`, `Git`, `Unit Testing`.
+- Primary call-to-action button linking to `/assets/Joey-Pompeo-Resume.pdf`.
+- Featured projects section displaying three project cards sourced from `/projects`.
+- Latest posts section displaying up to three recent entries from `/posts`.
+- Secondary “Hire Me → Contact” call-to-action linking to contact page.
+
+## P1 — Contact Path
+
+**As** a prospective client  
+**I want** a straightforward way to contact Joey  
+**So that** I can initiate a conversation without friction.
+
+### Acceptance Criteria
+- Contact page with `mailto:hello@joeypcodes.com` link.
+- Social icon links for GitHub and LinkedIn present in header or footer.
+- Secondary CTA from home page routes to contact page.
+
+## P2 — About Page Credentials
+
+**As** a hiring manager  
+**I want** to understand Joey’s background and certifications  
+**So that** I can evaluate credibility and fit.
+
+### Acceptance Criteria
+- About page includes provided bio paragraphs.
+- Certifications list includes AZ-104, AZ-204, AZ-400 with full titles.
+- Résumé download link accessible from page.
+
+## P2 — Projects Showcase
+
+**As** a prospective collaborator  
+**I want** to review highlighted projects with stack and outcomes  
+**So that** I can assess relevant experience.
+
+### Acceptance Criteria
+- `/projects` index renders card grid with title, summary, tags, and link.
+- Compound Interest Calculator project documented with role, tech stack, and GitHub placeholder.
+- Clicking a project card navigates to a detail page with overview, tech stack, screenshots placeholder, and outcomes.
+
+## P3 — Blog Publishing
+
+**As** a returning reader  
+**I want** to browse blog posts by topic  
+**So that** I can learn from Joey’s technical insights.
+
+### Acceptance Criteria
+- Markdown posts stored under `/posts` with tags (`csharp`, `azure`, `functions`, `ci/cd`).
+- `/blog` index lists posts chronologically with tag filter UI (filter implementation may be deferred, but tags displayed).
+- Individual post pages support syntax highlighting with Shiki.
+- RSS feed planned for later; not required in this release.
+
+# Non-Functional Requirements
+
+- WCAG 2.1 AA compliant semantics, focus states, and alt text.
+- Performance target: Lighthouse ≥ 90 on mobile; optimize assets and maintain minimal client scripting.
+- Consistent tone: technical, clear, friendly; dark theme default with light toggle.
+- No analytics or cookies initially.

@@ -1,0 +1,68 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const { Content, data } = Astro.props as {
+  Content: any;
+  data: {
+    title: string;
+    description: string;
+    published: Date;
+    updated?: Date;
+    tags: string[];
+    hero?: string;
+  };
+};
+
+const formattedPublished = new Date(data.published).toLocaleDateString(undefined, {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+});
+
+const formattedUpdated = data.updated
+  ? new Date(data.updated).toLocaleDateString(undefined, {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })
+  : null;
+---
+
+<BaseLayout title={data.title} description={data.description}>
+  <article class="space-y-8">
+    <header class="space-y-4">
+      <div class="space-y-2">
+        <h1 class="text-4xl font-bold text-white md:text-5xl">{data.title}</h1>
+        <p class="max-w-prose text-lg text-text-light/80">{data.description}</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-text-light/70">
+        <time datetime={data.published.toISOString()}>Published {formattedPublished}</time>
+        {formattedUpdated && (
+          <span aria-live="polite" class="text-xs uppercase tracking-wide text-text-light/60">
+            Updated {formattedUpdated}
+          </span>
+        )}
+        <ul class="flex flex-wrap gap-2 text-xs uppercase tracking-wide">
+          {data.tags.map((tag) => (
+            <li class="rounded-full border border-white/10 px-3 py-1">{tag}</li>
+          ))}
+        </ul>
+      </div>
+    </header>
+
+    {data.hero && (
+      <figure>
+        <img
+          class="w-full rounded-2xl border border-white/10"
+          src={data.hero}
+          alt=""
+          role="presentation"
+        />
+      </figure>
+    )}
+
+    <div class="prose prose-invert max-w-none">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

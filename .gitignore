@@ -1,0 +1,26 @@
+# Node / Astro build artifacts
+node_modules/
+dist/
+build/
+.astro/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Environment and local configuration
+.env
+.env.*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Netlify deploy cache
+.netlify/
+
+# codex 
+.codex
+.specify

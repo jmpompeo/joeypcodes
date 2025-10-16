@@ -1,0 +1,46 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+---
+
+<PageLayout
+  title="Building secure, automated solutions in Azure"
+  description="I’m Joey Pompeo, a .NET developer focused on clean code, automation, and helping teams ship faster with confidence."
+  eyebrow="About Joey"
+>
+  <div class="space-y-8 text-text-light/80">
+    <section class="space-y-4">
+      <p>
+        I’m Joey Pompeo, a .NET developer focused on building secure, automated solutions in Azure. I’ve spent the last
+        few years designing APIs, serverless apps, and DevOps pipelines that make development smoother and deployments
+        safer.
+      </p>
+      <p>
+        I’m passionate about clean code, test-driven development, and helping teams work smarter with automation. From
+        IaC modules to CI/CD guardrails, I look for ways to turn tribal knowledge into reliable systems.
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-white">Certifications</h2>
+      <ul class="grid gap-3 md:grid-cols-2">
+        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3 text-sm text-text-light/80">
+          AZ-104 — Microsoft Certified Azure Administrator Associate
+        </li>
+        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3 text-sm text-text-light/80">
+          AZ-204 — Developing Solutions for Microsoft Azure
+        </li>
+        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3 text-sm text-text-light/80">
+          AZ-400 — Designing and Implementing Microsoft DevOps Solutions
+        </li>
+      </ul>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-white">Résumé</h2>
+      <CTAButton href="/assets/Joey-Pompeo-Resume.pdf" download variant="secondary">
+        Download Résumé (PDF)
+      </CTAButton>
+    </section>
+  </div>
+</PageLayout>

@@ -1,0 +1,44 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import CTAButton from './CTAButton.astro';
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-white/10 bg-surface-dark/70 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
+  <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
+    <a class="text-lg font-semibold tracking-wide" href="/" aria-label="Joey P Codes home">
+      Joey P Codes
+    </a>
+    <nav aria-label="Primary" class="hidden items-center gap-6 text-sm font-medium md:flex">
+      {navLinks.map(({ label, href }) => {
+        const isActive = currentPath === href;
+        return (
+          <a
+            class:list={[
+              'transition-colors duration-150 hover:text-primary focus-visible:text-primary',
+              isActive ? 'text-primary' : 'text-text-light/70',
+            ]}
+            href={href}
+          >
+            {label}
+          </a>
+        );
+      })}
+    </nav>
+    <div class="flex items-center gap-3">
+      <CTAButton href="/contact" size="sm">
+        Hire Me
+      </CTAButton>
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
