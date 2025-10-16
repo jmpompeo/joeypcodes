@@ -24,3 +24,6 @@ Thumbs.db
 # codex 
 .codex
 .specify
+specs/
+.netlify/
+specs/001-joey-p-codes/
