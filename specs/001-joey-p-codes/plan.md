@@ -78,6 +78,16 @@ joeypcodes/
   - Blog: Post index with tag filter (search deferred)
   - Contact: `mailto:` link plus GitHub/LinkedIn icons
 
+# Content Fix Strategy
+
+- Replace markdown project entries with a typed data source (`src/data/projects.ts`) that maps to Joey’s public repositories:
+  - `jmpompeo/CompoundInterestCalculator`
+  - `jmpompeo/unit-test-improvements`
+  - `jmpompeo/joeypcodes`
+- Augment project layouts to consume repository metadata (name, description, tech stack, outcomes, GitHub URL); ensure defensive checks for missing fields to avoid runtime errors.
+- Ensure Astro content queries for posts and projects guard against absent `data` properties by using type-safe accessors and fallback messaging.
+- Keep markdown posts but validate frontmatter fields (`title`, `description`, `tags`, `published`) with stricter schemas to prevent undefined values during rendering.
+
 # Color & Typography Tokens
 
 | Token | Value | Description |

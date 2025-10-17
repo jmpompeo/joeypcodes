@@ -50,7 +50,25 @@ description: "Execution-ready task list for Joey P Codes feature"
 
 ---
 
-## Phase 3: User Story 1 – Home Page Snapshot (Priority: P1) 🎯 MVP
+## Phase 3: User Story 0 – Content Fix (Priority: P0) 🔧
+
+**Goal**: Resolve runtime errors on projects and blog pages by sourcing accurate GitHub metadata and hardening post schemas.  
+**Independent Test**: Visit `/projects`, each project detail page, `/blog`, and each blog post; confirm no runtime errors, GitHub links render correctly, and all titles/descriptions/tags display.
+
+### Implementation Tasks
+
+- [ ] T056 [US0] Create typed project metadata module with GitHub details in site/src/data/projects.ts
+- [ ] T057 [US0] Update ProjectCard to consume typed project model and guard optional fields in site/src/components/ProjectCard.astro
+- [ ] T058 [US0] Refactor projects index to use data module and remove undefined field access in site/src/pages/projects.astro
+- [ ] T059 [US0] Refactor project detail route to load metadata from data module with safe fallbacks in site/src/pages/projects/[slug].astro
+- [ ] T060 [US0] Tighten blog post schema and add required fields validation in site/src/content/config.ts
+- [ ] T061 [US0] Ensure blog index handles missing metadata gracefully in site/src/pages/blog.astro
+- [ ] T062 [US0] Harden PostLayout against undefined frontmatter values in site/src/layouts/PostLayout.astro
+- [ ] T063 [US0] Verify blog post markdown includes required frontmatter and adjust content in site/src/content/posts/
+
+---
+
+## Phase 4: User Story 1 – Home Page Snapshot (Priority: P1) 🎯 MVP
 
 **Goal**: Present Joey’s focus, skills, featured projects, and latest posts on the landing page.  
 **Independent Test**: Navigate to `/` and confirm hero messaging, skill pillars, three featured projects, three latest posts, and both résumé and Hire Me calls-to-action are present and functional.
@@ -66,7 +84,7 @@ description: "Execution-ready task list for Joey P Codes feature"
 
 ---
 
-## Phase 4: User Story 2 – Contact Path (Priority: P1)
+## Phase 5: User Story 2 – Contact Path (Priority: P1)
 
 **Goal**: Offer a frictionless contact route via mailto link and social profiles.  
 **Independent Test**: Visit `/contact` to confirm the mailto link works, then verify header/footer navigation exposes contact, GitHub, and LinkedIn entries with accessible labels.
@@ -79,7 +97,7 @@ description: "Execution-ready task list for Joey P Codes feature"
 
 ---
 
-## Phase 5: User Story 3 – About Page Credentials (Priority: P2)
+## Phase 6: User Story 3 – About Page Credentials (Priority: P2)
 
 **Goal**: Communicate Joey’s background and certifications with résumé access.  
 **Independent Test**: Visit `/about` and confirm biography paragraphs, certification list (AZ-104, AZ-204, AZ-400 with full titles), and résumé download CTA are visible and linked correctly.
@@ -92,7 +110,7 @@ description: "Execution-ready task list for Joey P Codes feature"
 
 ---
 
-## Phase 6: User Story 4 – Projects Showcase (Priority: P2)
+## Phase 7: User Story 4 – Projects Showcase (Priority: P2)
 
 **Goal**: Display project cards and case study detail pages sourced from markdown.  
 **Independent Test**: Navigate to `/projects` to verify the card grid, then open the Compound Interest project page to confirm overview, role, stack, outcomes, and GitHub placeholder render correctly.
@@ -107,7 +125,7 @@ description: "Execution-ready task list for Joey P Codes feature"
 
 ---
 
-## Phase 7: User Story 5 – Blog Publishing (Priority: P3)
+## Phase 8: User Story 5 – Blog Publishing (Priority: P3)
 
 **Goal**: Publish tagged markdown posts with syntax highlighting and list view.  
 **Independent Test**: Visit `/blog` to verify chronological listing and tag filter UI, then open each post to confirm content renders with Shiki highlighting and correct tag metadata.
@@ -123,7 +141,7 @@ description: "Execution-ready task list for Joey P Codes feature"
 
 ---
 
-## Phase 8: Polish & Cross-Cutting Concerns
+## Phase 9: Polish & Cross-Cutting Concerns
 
 **Purpose**: Finalize quality, performance, and documentation across the site.
 
@@ -137,14 +155,15 @@ description: "Execution-ready task list for Joey P Codes feature"
 ## Dependencies & Execution Order
 
 - **Phase 1 → Phase 2**: Setup must complete before foundational work.  
-- **Phase 2 → Phases 3–7**: Foundational assets (layouts, components, content stubs) are prerequisites for all user stories.  
-- **User Story Order**: US1 (P1) → US2 (P1) → US3 (P2) → US4 (P2) → US5 (P3). Each story can begin once Phase 2 is complete and earlier-priority stories are delivered, but stories for the same priority may run in parallel if files do not conflict.  
-- **Phase 8** begins after all targeted user stories are feature-complete.
+- **Phase 2 → Phases 3–8**: Foundational assets (layouts, components, content stubs) are prerequisites for all user stories and fixes.  
+- **User Story Order**: US0 (P0) → US1 (P1) → US2 (P1) → US3 (P2) → US4 (P2) → US5 (P3). Each story can begin once Phase 2 is complete and earlier-priority stories are delivered, but stories for the same priority may run in parallel if files do not conflict.  
+- **Phase 9** begins after all targeted user stories are feature-complete.
 
 ---
 
 ## Parallel Execution Examples
 
+- **US0**: T056–T059 touch different files (`data/projects.ts`, components, pages) and can proceed in parallel once the data module is in place.  
 - **US1**: After T027, T028–T031 can be coded sequentially within `index.astro`, while T032 finalizes metadata.  
 - **US2**: T033 (contact page) can proceed while T034 updates the footer, provided coordination on shared components.  
 - **US4**: T040 (projects index) and T041 (detail route) can move in parallel once T039 updates content, as they affect separate files.  
@@ -154,7 +173,7 @@ description: "Execution-ready task list for Joey P Codes feature"
 
 ## Implementation Strategy
 
-1. **MVP First**: Complete Phases 1–3 to deliver the home page experience (US1) as the minimum viable product.  
+1. **MVP First**: Complete Phases 1–4 to deliver the home page experience (US1) after resolving content fixes.  
 2. **Incremental Delivery**: Layer on US2 (contact) and US3–US5 in priority order, validating each route independently before proceeding.  
 3. **Quality Gate**: Reserve Phase 8 for cross-cutting polish after all desired user stories are merged.  
 4. **Collaboration**: Use [P]-marked tasks to parallelize work on distinct files without merge conflicts.

@@ -41,7 +41,22 @@ goal: Publish a technical portfolio and blog for Joey Pompeo
 - Certifications list includes AZ-104, AZ-204, AZ-400 with full titles.
 - Résumé download link accessible from page.
 
-## P2 — Projects Showcase
+## P0 — Projects Content Fix
+
+**As** a site visitor  
+**I want** each project to display accurate GitHub details  
+**So that** I can assess relevant experience.
+
+### Acceptance Criteria
+- Replace markdown project entries with data drawn from specified GitHub repositories:
+  - `https://github.com/jmpompeo/CompoundInterestCalculator`
+  - `https://github.com/jmpompeo/unit-test-improvements`
+  - `https://github.com/jmpompeo/joeypcodes`
+- Projects index renders card grid with title, summary, tags, and GitHub link per repository.
+- Detail pages show overview, stack, outcomes, and link back to GitHub README or repository.
+- Fix current runtime errors arising from missing `data` fields in Astro components.
+
+## P1 — Projects Showcase
 
 **As** a prospective collaborator  
 **I want** to review highlighted projects with stack and outcomes  
@@ -65,6 +80,16 @@ goal: Publish a technical portfolio and blog for Joey Pompeo
 - `/blog` index lists posts chronologically with tag filter UI (filter implementation may be deferred, but tags displayed).
 - Individual post pages support syntax highlighting with Shiki.
 - Search functionality deferred to a later phase.
+
+## P0 — Blog Content Fix
+
+**As** a reader  
+**I want** posts to display without runtime errors  
+**So that** I can read blog content reliably.
+
+### Acceptance Criteria
+- Resolve data-fetch errors on `/blog` and individual post pages by ensuring content collections return proper metadata.
+- Confirm all existing posts render with titles, descriptions, tags, and body Markdown.
 
 # Non-Functional Requirements
 

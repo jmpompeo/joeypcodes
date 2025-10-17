@@ -11,3 +11,17 @@
 - **Alternatives Considered**:
   - Separate `dependabot` GitHub Action on a schedule — redundant with built-in alerts.
   - Manual vulnerability scans — slower feedback.
+
+# Research — Joey P Codes CI Enhancement & Content Fix
+
+## Decision: Curate project metadata locally rather than live GitHub API calls
+- **Rationale**: Maintaining a `src/data/projects.ts` module keeps the build deterministic, avoids GitHub API rate limits, and ensures the projects page renders even without network access. We can periodically sync descriptions manually while presenting accurate repository links.
+- **Alternatives Considered**:
+  - Fetching GitHub API during build — risks rate limiting and requires tokens for reliability.
+  - Keeping markdown-only content — harder to reuse repository metadata in multiple components and was prone to undefined `data` fields causing runtime errors.
+
+## Decision: Strengthen Astro content schemas for blog posts
+- **Rationale**: Enforcing required frontmatter (title, description, tags, published date) through content collections prevents undefined access in templates and stabilizes the blog page rendering.
+- **Alternatives Considered**:
+  - Runtime null checks only — still allows silent content regressions.
+  - Moving posts to an external CMS — overkill for current scope and adds maintenance overhead.
