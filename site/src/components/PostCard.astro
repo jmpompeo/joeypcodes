@@ -1,12 +1,18 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-
-const { post } = Astro.props as {
-  post: CollectionEntry<'posts'>;
+type PostCardData = {
+  slug: string;
+  title: string;
+  description: string;
+  published: Date;
+  tags: string[];
 };
 
-const { data, slug } = post;
-const publishedDate = new Date(data.published).toLocaleDateString(undefined, {
+const { post } = Astro.props as {
+  post: PostCardData;
+};
+
+const { slug, title, description, published, tags } = post;
+const publishedDate = published.toLocaleDateString(undefined, {
   month: 'short',
   day: 'numeric',
   year: 'numeric',
@@ -18,14 +24,16 @@ const publishedDate = new Date(data.published).toLocaleDateString(undefined, {
     <p class="text-xs uppercase tracking-wide text-text-light/60">{publishedDate}</p>
     <h3 class="text-lg font-semibold text-white">
       <a class="transition hover:text-primary focus-visible:text-primary" href={`/posts/${slug}`}>
-        {data.title}
+        {title}
       </a>
     </h3>
   </header>
-  <p class="text-sm text-text-light/80">{data.description}</p>
-  <ul class="mt-auto flex flex-wrap gap-2 text-xs uppercase tracking-wide text-text-light/70">
-    {data.tags.map((tag) => (
-      <li class="rounded-full border border-white/10 px-3 py-1">{tag}</li>
-    ))}
-  </ul>
+  <p class="text-sm text-text-light/80">{description}</p>
+  {tags.length > 0 && (
+    <ul class="mt-auto flex flex-wrap gap-2 text-xs uppercase tracking-wide text-text-light/70">
+      {tags.map((tag) => (
+        <li class="rounded-full border border-white/10 px-3 py-1">{tag}</li>
+      ))}
+    </ul>
+  )}
 </article>

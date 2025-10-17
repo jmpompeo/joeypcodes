@@ -1,19 +1,35 @@
 ---
-import { getCollection } from 'astro:content';
+import { getEntryBySlug } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import { projects } from '../../data/projects';
+import type { ProjectMeta } from '../../data/projects';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  return Promise.all(
+    projects.map(async (meta) => {
+      const entry = await getEntryBySlug('projects', meta.slug);
 
-  return projects.map((project) => ({
-    params: { slug: project.slug },
-    props: { project },
-  }));
+      return {
+        params: { slug: meta.slug },
+        props: {
+          meta,
+          entry,
+        },
+      };
+    })
+  );
 }
 
-const { project } = Astro.props as { project: CollectionEntry<'projects'> };
-const { Content } = await project.render();
+const { meta, entry } = Astro.props as {
+  meta: ProjectMeta;
+  entry: CollectionEntry<'projects'> | null;
+};
+
+let Content: any = null;
+if (entry) {
+  ({ Content } = await entry.render());
+}
 ---
 
-<ProjectLayout Content={Content} data={project.data} />
+<ProjectLayout Content={Content} meta={meta} />

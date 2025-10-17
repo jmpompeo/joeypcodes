@@ -1,11 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { getCollection } from 'astro:content';
+import { projects as projectData } from '../data/projects';
 
-const projects = (await getCollection('projects'))
-  .filter(({ data }) => !data.draft)
-  .sort((a, b) => a.data.order - b.data.order);
+const projects = [...projectData].sort((a, b) => a.order - b.order);
 ---
 
 <BaseLayout title="Project case studies" description="A snapshot of the Azure and .NET projects I’ve delivered — from automation toolkits to real-time observability dashboards.">

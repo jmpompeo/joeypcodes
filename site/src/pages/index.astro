@@ -4,16 +4,25 @@ import CTAButton from '../components/CTAButton.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import PostCard from '../components/PostCard.astro';
 import { getCollection } from 'astro:content';
+import { projects as projectData } from '../data/projects';
 
-const projects = (await getCollection('projects'))
-  .filter(({ data }) => !data.draft)
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 3);
+const projects = [...projectData].sort((a, b) => a.order - b.order).slice(0, 3);
 
 const posts = (await getCollection('posts'))
   .filter(({ data }) => !data.draft)
-  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
-  .slice(0, 3);
+  .sort((a, b) => {
+    const aDate = a.data.published ?? new Date(0);
+    const bDate = b.data.published ?? new Date(0);
+    return bDate.getTime() - aDate.getTime();
+  })
+  .slice(0, 3)
+  .map((entry) => ({
+    slug: entry.slug,
+    title: entry.data.title ?? 'Untitled Post',
+    description: entry.data.description ?? 'Details coming soon.',
+    published: entry.data.published ?? new Date(0),
+    tags: Array.isArray(entry.data.tags) ? entry.data.tags : [],
+  }));
 
 const skillPillars = ['.NET', 'Azure Functions', 'CI/CD', 'Bicep', 'Git', 'Unit Testing'];
 ---

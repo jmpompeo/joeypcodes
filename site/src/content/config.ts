@@ -26,11 +26,11 @@ const projects = defineCollection({
 const posts = defineCollection({
   type: 'content',
   schema: z.object({
-    title: z.string(),
-    description: z.string().min(10),
+    title: z.string().min(3).trim(),
+    description: z.string().min(20).trim(),
     published: z.date(),
     updated: z.date().optional(),
-    tags: z.array(z.string()).min(1),
+    tags: z.array(z.string().trim().min(1)).min(1),
     draft: z.boolean().default(false),
     hero: z.string().optional(),
   }),

@@ -1,51 +1,60 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import CTAButton from '../components/CTAButton.astro';
+import type { ProjectMeta } from '../data/projects';
 
-const { Content, data } = Astro.props as {
-  Content: any;
-  data: {
-    title: string;
-    summary: string;
-    role: string;
-    tech: string[];
-    tags: string[];
-    outcomes: string[];
-    github?: string;
-  };
+const { Content, meta } = Astro.props as {
+  Content: any | null;
+  meta: ProjectMeta;
 };
+
+const title = meta.title ?? 'Project overview';
+const summary = meta.summary ?? 'Project details coming soon.';
+const role = meta.role ?? 'Contributor';
+const tech = Array.isArray(meta.tech) ? meta.tech : [];
+const tags = Array.isArray(meta.tags) ? meta.tags : [];
+const outcomes = Array.isArray(meta.outcomes) ? meta.outcomes : [];
+const github = meta.github ?? '';
 ---
 
-<BaseLayout title={data.title} description={data.summary}>
+<BaseLayout title={title} description={summary}>
   <article class="space-y-10">
     <section class="grid gap-8 md:grid-cols-[2fr,1fr]">
       <div class="space-y-4">
         <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-primary">
-          {data.tags.map((tag) => (
-            <span class="rounded-full border border-white/10 px-3 py-1">{tag}</span>
-          ))}
+          {tags.length > 0 ? (
+            tags.map((tag) => <span class="rounded-full border border-white/10 px-3 py-1">{tag}</span>)
+          ) : (
+            <span class="rounded-full border border-white/10 px-3 py-1">Case Study</span>
+          )}
         </div>
-        <p class="text-text-light/80">{data.summary}</p>
+        <p class="text-text-light/80">{summary}</p>
       </div>
       <aside class="space-y-4 rounded-2xl border border-white/10 bg-surface-dark/70 p-5">
         <dl class="space-y-2 text-sm text-text-light/80">
           <div>
             <dt class="font-semibold text-white">Role</dt>
-            <dd>{data.role}</dd>
+            <dd>{role}</dd>
           </div>
           <div>
             <dt class="font-semibold text-white">Tech</dt>
             <dd class="flex flex-wrap gap-2">
-              {data.tech.map((item) => (
+              {tech.length > 0 ? (
+                tech.map((item) => (
+                  <span class="rounded-full border border-white/10 px-2 py-1 text-xs uppercase tracking-wide">
+                    {item}
+                  </span>
+                ))
+              ) : (
                 <span class="rounded-full border border-white/10 px-2 py-1 text-xs uppercase tracking-wide">
-                  {item}
+                  Details coming soon
                 </span>
-              ))}
+              )}
             </dd>
           </div>
         </dl>
-        {data.github ? (
-          <CTAButton href={data.github} target="_blank" rel="noreferrer" variant="secondary">
+        {github ? (
+          <CTAButton href={github} target="_blank" rel="noreferrer" variant="secondary">
             View on GitHub
           </CTAButton>
         ) : (
@@ -54,19 +63,25 @@ const { Content, data } = Astro.props as {
       </aside>
     </section>
 
-    {data.outcomes.length > 0 && (
+    {outcomes.length > 0 && (
       <section class="space-y-3">
         <h2 class="text-2xl font-semibold text-white">Outcomes</h2>
         <ul class="list-disc space-y-2 pl-6 text-text-light/80">
-          {data.outcomes.map((item) => (
+          {outcomes.map((item) => (
             <li>{item}</li>
           ))}
         </ul>
       </section>
     )}
 
-    <section class="prose prose-invert max-w-none">
-      <Content />
-    </section>
+    {Content ? (
+      <section class="prose prose-invert max-w-none">
+        <Content />
+      </section>
+    ) : (
+      <section class="rounded-2xl border border-dashed border-white/10 bg-surface-dark/60 p-6 text-sm text-text-light/70">
+        Detailed write-up coming soon. In the meantime, explore the repository for implementation notes and code examples.
+      </section>
+    )}
   </article>
 </BaseLayout>
