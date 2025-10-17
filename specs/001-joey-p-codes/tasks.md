@@ -45,6 +45,8 @@ description: "Execution-ready task list for Joey P Codes feature"
 - [x] T024 [P] Seed Azure Functions blog post stub in site/src/content/posts/azure-functions-best-practices.md
 - [x] T025 [P] Seed .NET CI/CD blog post stub in site/src/content/posts/dotnet-ci-pipeline-notes.md
 - [x] T026 [P] Seed Infrastructure as Code blog post stub in site/src/content/posts/infrastructure-as-code-bicep.md
+- [x] T054 Create pull-request CI workflow that runs build and npm audit in .github/workflows/ci.yml
+- [x] T055 Configure Dependabot npm ecosystem checks in .github/dependabot.yml
 
 ---
 
