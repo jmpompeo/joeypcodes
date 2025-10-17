@@ -1,4 +1,4 @@
-# Research — Joey P Codes CI Enhancement & Content Fix
+# Research — Joey P Codes CI Enhancement
 
 ## Decision: GitHub Actions for CI checks on PRs to main
 - **Rationale**: GitHub Actions integrates directly with repository events, supports caching and Node.js matrices, and keeps the workflow co-located with the codebase. Running `npm run build` validates Astro compilation, while `npm audit --production` surfaces vulnerable dependencies early.
@@ -11,6 +11,8 @@
 - **Alternatives Considered**:
   - Separate `dependabot` GitHub Action on a schedule — redundant with built-in alerts.
   - Manual vulnerability scans — slower feedback.
+
+# Research — Joey P Codes CI Enhancement & Content Fix
 
 ## Decision: Curate project metadata locally rather than live GitHub API calls
 - **Rationale**: Maintaining a `src/data/projects.ts` module keeps the build deterministic, avoids GitHub API rate limits, and ensures the projects page renders even without network access. We can periodically sync descriptions manually while presenting accurate repository links.

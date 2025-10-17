@@ -97,3 +97,4 @@ goal: Publish a technical portfolio and blog for Joey Pompeo
 - Performance target: Lighthouse ≥ 90 on mobile; optimize assets and keep client scripting minimal.
 - Consistent tone: technical, clear, friendly; dark theme default with light toggle.
 - No analytics or cookies initially.
+- CI guardrails: On every pull request targeting `main`, run a GitHub Actions workflow that installs dependencies, builds the Astro site, and runs dependency vulnerability checks.

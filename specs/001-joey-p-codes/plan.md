@@ -115,6 +115,18 @@ npm run dev
 4. Publish directory: `dist/`.
 5. Use Node.js 18 or later.
 
+## Continuous Integration
+
+- Add a GitHub Actions workflow at `.github/workflows/ci.yml`.
+- Trigger the workflow on `pull_request` events where `base` is `main`.
+- Steps:
+  1. Checkout repository and set up Node.js 18.x.
+  2. Install dependencies with `npm ci`.
+  3. Run `npm run build` to compile the Astro site.
+  4. Run `npm audit --production` to surface dependency vulnerabilities; fail the job on findings.
+  5. Upload build artifacts (optional) for preview if needed.
+- Complement the audit step with repository-level Dependabot alerts; ensure Dependabot is enabled for npm ecosystem.
+
 # Quality Checks
 
 - ESLint + Prettier via `lint-staged` for formatting and linting.
