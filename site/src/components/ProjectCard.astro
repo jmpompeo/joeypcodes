@@ -7,7 +7,7 @@ type Props = {
 };
 
 const { project } = Astro.props as Props;
-const { slug, title, summary, tags = [], role, github } = project;
+const { title, summary, tags = [], role, github } = project;
 ---
 
 <article class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-surface-dark/70 p-6 shadow-lg shadow-black/10 transition hover:border-primary focus-within:border-primary">
@@ -25,12 +25,9 @@ const { slug, title, summary, tags = [], role, github } = project;
   <footer class="mt-auto flex items-center justify-between gap-3">
     <span class="text-sm text-text-light/70">Role: {role}</span>
     {github ? (
-      <CTAButton href={github} size="sm" variant="ghost" target="_blank" rel="noreferrer">
+      <CTAButton href={github} size="sm" variant="secondary" target="_blank" rel="noreferrer">
         GitHub ↗
       </CTAButton>
     ) : null}
-    <CTAButton href={`/projects/${slug}`} size="sm" variant="secondary">
-      View Case Study
-    </CTAButton>
   </footer>
 </article>

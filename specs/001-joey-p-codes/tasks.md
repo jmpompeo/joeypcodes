@@ -57,14 +57,14 @@ description: "Execution-ready task list for Joey P Codes feature"
 
 ### Implementation Tasks
 
-- [ ] T056 [US0] Create typed project metadata module with GitHub details in site/src/data/projects.ts
-- [ ] T057 [US0] Update ProjectCard to consume typed project model and guard optional fields in site/src/components/ProjectCard.astro
-- [ ] T058 [US0] Refactor projects index to use data module and remove undefined field access in site/src/pages/projects.astro
-- [ ] T059 [US0] Refactor project detail route to load metadata from data module with safe fallbacks in site/src/pages/projects/[slug].astro
-- [ ] T060 [US0] Tighten blog post schema and add required fields validation in site/src/content/config.ts
-- [ ] T061 [US0] Ensure blog index handles missing metadata gracefully in site/src/pages/blog.astro
-- [ ] T062 [US0] Harden PostLayout against undefined frontmatter values in site/src/layouts/PostLayout.astro
-- [ ] T063 [US0] Verify blog post markdown includes required frontmatter and adjust content in site/src/content/posts/
+- [x] T056 [US0] Create typed project metadata module with GitHub details in site/src/data/projects.ts
+- [x] T057 [US0] Update ProjectCard to consume typed project model and guard optional fields in site/src/components/ProjectCard.astro
+- [x] T058 [US0] Refactor projects index to use data module and remove undefined field access in site/src/pages/projects.astro
+- [x] T059 [US0] Refactor project detail route to load metadata from data module with safe fallbacks in site/src/pages/projects/[slug].astro
+- [x] T060 [US0] Tighten blog post schema and add required fields validation in site/src/content/config.ts
+- [x] T061 [US0] Ensure blog index handles missing metadata gracefully in site/src/pages/blog.astro
+- [x] T062 [US0] Harden PostLayout against undefined frontmatter values in site/src/layouts/PostLayout.astro
+- [x] T063 [US0] Verify blog post markdown includes required frontmatter and adjust content in site/src/content/posts/
 
 ---
 
