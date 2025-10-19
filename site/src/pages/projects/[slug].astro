@@ -1,5 +1,5 @@
 ---
-import { getEntryBySlug } from 'astro:content';
+import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import { projects } from '../../data/projects';
@@ -8,7 +8,7 @@ import type { ProjectMeta } from '../../data/projects';
 export async function getStaticPaths() {
   return Promise.all(
     projects.map(async (meta) => {
-      const entry = await getEntryBySlug('projects', meta.slug);
+      const entry = await getEntry({ collection: 'projects', slug: meta.slug });
 
       return {
         params: { slug: meta.slug },

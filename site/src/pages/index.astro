@@ -2,27 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTAButton from '../components/CTAButton.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import PostCard from '../components/PostCard.astro';
-import { getCollection } from 'astro:content';
 import { projects as projectData } from '../data/projects';
 
 const projects = [...projectData].sort((a, b) => a.order - b.order).slice(0, 3);
-
-const posts = (await getCollection('posts'))
-  .filter(({ data }) => !data.draft)
-  .sort((a, b) => {
-    const aDate = a.data.published ?? new Date(0);
-    const bDate = b.data.published ?? new Date(0);
-    return bDate.getTime() - aDate.getTime();
-  })
-  .slice(0, 3)
-  .map((entry) => ({
-    slug: entry.slug,
-    title: entry.data.title ?? 'Untitled Post',
-    description: entry.data.description ?? 'Details coming soon.',
-    published: entry.data.published ?? new Date(0),
-    tags: Array.isArray(entry.data.tags) ? entry.data.tags : [],
-  }));
 
 const skillPillars = ['.NET', 'Azure Functions', 'CI/CD', 'Bicep', 'Git', 'Unit Testing'];
 ---
@@ -79,11 +61,9 @@ const skillPillars = ['.NET', 'Azure Functions', 'CI/CD', 'Bicep', 'Git', 'Unit 
           Read the blog
         </a>
       </div>
-      <div class="grid gap-6 md:grid-cols-2">
-        {posts.map((post) => (
-          <PostCard post={post} />
-        ))}
-      </div>
+      <p class="rounded-2xl border border-dashed border-white/10 bg-surface-dark/60 p-6 text-sm text-text-light/70">
+        Content coming soon.
+      </p>
     </section>
   </section>
 </BaseLayout>
