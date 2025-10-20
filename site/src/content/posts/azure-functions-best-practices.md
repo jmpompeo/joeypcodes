@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/PostLayout.astro
 title: Azure Functions Best Practices for High-Throughput Workloads
 description: Lessons learned from scaling Azure Functions to handle bursty automation pipelines with predictable performance.
 published: 2024-04-15

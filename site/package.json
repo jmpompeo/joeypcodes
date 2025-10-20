@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "a11y": "npm run build && sh -c \"npm run preview -- --host 127.0.0.1 --port 4173 --silent & PREVIEW_PID=$!; npx wait-on http://127.0.0.1:4173 && pa11y-ci --config .pa11yci.json; EXIT=$?; kill $PREVIEW_PID; exit $EXIT\"",
+    "a11y:ci": "sh -c \"npm run preview -- --host 127.0.0.1 --port 4173 --silent & PREVIEW_PID=$!; npx wait-on http://127.0.0.1:4173 && pa11y-ci --config .pa11yci.json; EXIT=$?; kill $PREVIEW_PID; exit $EXIT\""
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
@@ -29,6 +31,8 @@
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
+    "pa11y-ci": "^3.1.0",
+    "wait-on": "^7.2.0",
     "prettier-plugin-astro": "^0.13.0",
     "simple-git-hooks": "^2.9.0",
     "tailwindcss": "^3.4.3",

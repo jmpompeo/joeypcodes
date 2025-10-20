@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/PostLayout.astro
 title: Hardening .NET CI/CD Pipelines
 description: A checklist for building reliable .NET pipelines with automated quality gates, secret hygiene, and fast feedback loops.
 published: 2024-03-05

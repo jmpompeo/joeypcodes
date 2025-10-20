@@ -26,15 +26,17 @@ const sizeClasses: Record<typeof size, string> = {
 };
 
 const variantClasses: Record<typeof variant, string> = {
-  primary: 'bg-primary text-white hover:bg-primary/90',
-  secondary: 'border border-white/40 text-white hover:border-primary hover:text-primary',
-  ghost: 'text-white hover:text-primary',
+  primary:
+    'bg-[color:var(--color-accent)] text-[color:var(--color-text-on-accent)] hover:bg-[color:var(--color-accent-hover)]',
+  secondary:
+    'border border-[color:var(--color-accent)] text-[color:var(--color-accent)] hover:bg-[color:var(--color-accent)] hover:text-[color:var(--color-text-on-accent)]',
+  ghost: 'text-[color:var(--color-accent)] hover:text-[color:var(--color-accent-hover)]',
 };
 ---
 
 <a
   class:list={[
-    'inline-flex items-center justify-center rounded-full font-semibold transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
+    'inline-flex items-center justify-center rounded-full font-semibold transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--color-focus)]',
     sizeClasses[size],
     variantClasses[variant],
   ]}

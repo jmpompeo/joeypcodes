@@ -21,32 +21,34 @@ const github = meta.github ?? '';
   <article class="space-y-10">
     <section class="grid gap-8 md:grid-cols-[2fr,1fr]">
       <div class="space-y-4">
-        <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-primary">
+        <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-[color:var(--color-accent)]">
           {tags.length > 0 ? (
-            tags.map((tag) => <span class="rounded-full border border-white/10 px-3 py-1">{tag}</span>)
+            tags.map((tag) => (
+              <span class="rounded-full border border-[color:var(--color-border)] px-3 py-1">{tag}</span>
+            ))
           ) : (
-            <span class="rounded-full border border-white/10 px-3 py-1">Case Study</span>
+            <span class="rounded-full border border-[color:var(--color-border)] px-3 py-1">Case Study</span>
           )}
         </div>
-        <p class="text-text-light/80">{summary}</p>
+        <p class="text-[color:var(--color-text-muted)]">{summary}</p>
       </div>
-      <aside class="space-y-4 rounded-2xl border border-white/10 bg-surface-dark/70 p-5">
-        <dl class="space-y-2 text-sm text-text-light/80">
+      <aside class="space-y-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-5">
+        <dl class="space-y-2 text-sm text-[color:var(--color-text-muted)]">
           <div>
-            <dt class="font-semibold text-white">Role</dt>
+            <dt class="font-semibold text-[color:var(--color-text)]">Role</dt>
             <dd>{role}</dd>
           </div>
           <div>
-            <dt class="font-semibold text-white">Tech</dt>
+            <dt class="font-semibold text-[color:var(--color-text)]">Tech</dt>
             <dd class="flex flex-wrap gap-2">
               {tech.length > 0 ? (
                 tech.map((item) => (
-                  <span class="rounded-full border border-white/10 px-2 py-1 text-xs uppercase tracking-wide">
+                  <span class="rounded-full border border-[color:var(--color-border)] px-2 py-1 text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]">
                     {item}
                   </span>
                 ))
               ) : (
-                <span class="rounded-full border border-white/10 px-2 py-1 text-xs uppercase tracking-wide">
+                <span class="rounded-full border border-[color:var(--color-border)] px-2 py-1 text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]">
                   Details coming soon
                 </span>
               )}
@@ -58,15 +60,15 @@ const github = meta.github ?? '';
             View on GitHub
           </CTAButton>
         ) : (
-          <p class="text-xs text-text-light/60">GitHub link coming soon.</p>
+          <p class="text-xs text-[color:var(--color-text-muted)]">GitHub link coming soon.</p>
         )}
       </aside>
     </section>
 
     {outcomes.length > 0 && (
       <section class="space-y-3">
-        <h2 class="text-2xl font-semibold text-white">Outcomes</h2>
-        <ul class="list-disc space-y-2 pl-6 text-text-light/80">
+        <h2 class="text-2xl font-semibold text-[color:var(--color-text)]">Outcomes</h2>
+        <ul class="list-disc space-y-2 pl-6 text-[color:var(--color-text-muted)]">
           {outcomes.map((item) => (
             <li>{item}</li>
           ))}
@@ -79,7 +81,7 @@ const github = meta.github ?? '';
         <Content />
       </section>
     ) : (
-      <section class="rounded-2xl border border-dashed border-white/10 bg-surface-dark/60 p-6 text-sm text-text-light/70">
+      <section class="rounded-2xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-6 text-sm text-[color:var(--color-text-muted)]">
         Detailed write-up coming soon. In the meantime, explore the repository for implementation notes and code examples.
       </section>
     )}

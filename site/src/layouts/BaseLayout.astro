@@ -18,10 +18,11 @@ const {
     <meta name="description" content={description} />
     <slot name="head" />
   </head>
-<body class:list={[pageClass, 'min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-200']}>
+<body class:list={[pageClass, 'min-h-screen bg-[var(--color-bg)] text-[color:var(--color-text)] transition-colors duration-200']}>
     <a
       href="#main-content"
-      class="skip-link absolute left-[-999px] top-4 z-50 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white focus:left-4 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-white"
+      class="skip-link absolute left-[-999px] top-4 z-50 rounded-full border px-4 py-2 text-sm font-semibold transition duration-150 focus:left-4 focus:outline focus:outline-2 focus:outline-offset-2"
+      style="background-color: var(--color-accent); color: var(--color-text-on-accent); border-color: var(--color-border); outline-color: var(--color-focus);"
     >
       Skip to main content
     </a>

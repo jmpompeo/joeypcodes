@@ -8,14 +8,29 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#0A2342',
-        surface: {
-          dark: '#000000',
-          light: '#FFFFFF',
+        brand: {
+          accent: '#2563EB',
+          accentHover: '#1E40AF',
         },
-        text: {
-          dark: '#FFFFFF',
-          light: '#111111',
+        theme: {
+          light: {
+            background: '#FFFFFF',
+            surface: '#F8FAFC',
+            surfaceMuted: '#EEF2FF',
+            text: '#101828',
+            textMuted: '#475467',
+            border: '#CBD5F5',
+            focus: '#2563EB',
+          },
+          dark: {
+            background: '#0B1120',
+            surface: '#111827',
+            surfaceMuted: '#1E293B',
+            text: '#F4F6FB',
+            textMuted: '#CBD5F5',
+            border: '#334155',
+            focus: '#93C5FD',
+          },
         },
       },
       fontFamily: {

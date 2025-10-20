@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/PostLayout.astro
 title: Bicep Patterns for Enterprise-Ready IaC
 description: Modular Bicep templates, policy enforcement, and governance workflows that keep Azure environments consistent.
 published: 2024-01-22
