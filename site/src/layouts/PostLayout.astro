@@ -1,8 +1,9 @@
 ---
+import type { AstroComponentFactory } from 'astro/runtime/server';
 import BaseLayout from './BaseLayout.astro';
 
 const { Content, data } = Astro.props as {
-  Content: any;
+  Content: AstroComponentFactory;
   data: {
     title: string;
     description: string;

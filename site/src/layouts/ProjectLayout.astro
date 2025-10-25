@@ -1,10 +1,11 @@
 ---
+import type { AstroComponentFactory } from 'astro/runtime/server';
 import BaseLayout from './BaseLayout.astro';
 import CTAButton from '../components/CTAButton.astro';
 import type { ProjectMeta } from '../data/projects';
 
 const { Content, meta } = Astro.props as {
-  Content: any | null;
+  Content: AstroComponentFactory | null;
   meta: ProjectMeta;
 };
 
