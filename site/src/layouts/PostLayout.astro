@@ -40,20 +40,20 @@ const formattedUpdated = updated
   <article class="space-y-8">
     <header class="space-y-4">
       <div class="space-y-2">
-        <h1 class="text-4xl font-bold text-[color:var(--color-text)] md:text-5xl">{title}</h1>
-        <p class="max-w-prose text-lg text-[color:var(--color-text-muted)]">{description}</p>
+        <h1 class="text-4xl font-bold text-[var(--color-text)] md:text-5xl">{title}</h1>
+        <p class="max-w-prose text-lg text-[var(--color-text-muted)]">{description}</p>
       </div>
-      <div class="flex flex-wrap items-center gap-3 text-sm text-[color:var(--color-text-muted)]">
+      <div class="flex flex-wrap items-center gap-3 text-sm text-[var(--color-text-muted)]">
         <time datetime={published.toISOString()}>Published {formattedPublished}</time>
         {formattedUpdated && (
-          <span aria-live="polite" class="text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]">
+          <span aria-live="polite" class="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
             Updated {formattedUpdated}
           </span>
         )}
         {tags.length > 0 && (
-          <ul class="flex flex-wrap gap-2 text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]">
+          <ul class="flex flex-wrap gap-2 text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
             {tags.map((tag) => (
-              <li class="rounded-full border border-[color:var(--color-border)] px-3 py-1">{tag}</li>
+              <li class="rounded-full border border-[var(--color-border)] px-3 py-1">{tag}</li>
             ))}
           </ul>
         )}
@@ -63,7 +63,7 @@ const formattedUpdated = updated
     {hero && (
       <figure>
         <img
-          class="w-full rounded-2xl border border-[color:var(--color-border)]"
+          class="w-full rounded-2xl border border-[var(--color-border)]"
           src={hero}
           alt=""
           role="presentation"

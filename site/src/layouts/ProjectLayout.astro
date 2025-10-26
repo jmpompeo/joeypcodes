@@ -22,34 +22,34 @@ const github = meta.github ?? '';
   <article class="space-y-10">
     <section class="grid gap-8 md:grid-cols-[2fr,1fr]">
       <div class="space-y-4">
-        <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-[color:var(--color-accent)]">
+        <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-[var(--color-accent)]">
           {tags.length > 0 ? (
             tags.map((tag) => (
-              <span class="rounded-full border border-[color:var(--color-border)] px-3 py-1">{tag}</span>
+              <span class="rounded-full border border-[var(--color-border)] px-3 py-1">{tag}</span>
             ))
           ) : (
-            <span class="rounded-full border border-[color:var(--color-border)] px-3 py-1">Case Study</span>
+            <span class="rounded-full border border-[var(--color-border)] px-3 py-1">Case Study</span>
           )}
         </div>
-        <p class="text-[color:var(--color-text-muted)]">{summary}</p>
+        <p class="text-[var(--color-text-muted)]">{summary}</p>
       </div>
-      <aside class="space-y-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-5">
-        <dl class="space-y-2 text-sm text-[color:var(--color-text-muted)]">
+      <aside class="space-y-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+        <dl class="space-y-2 text-sm text-[var(--color-text-muted)]">
           <div>
-            <dt class="font-semibold text-[color:var(--color-text)]">Role</dt>
+            <dt class="font-semibold text-[var(--color-text)]">Role</dt>
             <dd>{role}</dd>
           </div>
           <div>
-            <dt class="font-semibold text-[color:var(--color-text)]">Tech</dt>
+            <dt class="font-semibold text-[var(--color-text)]">Tech</dt>
             <dd class="flex flex-wrap gap-2">
               {tech.length > 0 ? (
                 tech.map((item) => (
-                  <span class="rounded-full border border-[color:var(--color-border)] px-2 py-1 text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]">
+                  <span class="rounded-full border border-[var(--color-border)] px-2 py-1 text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
                     {item}
                   </span>
                 ))
               ) : (
-                <span class="rounded-full border border-[color:var(--color-border)] px-2 py-1 text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]">
+                <span class="rounded-full border border-[var(--color-border)] px-2 py-1 text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
                   Details coming soon
                 </span>
               )}
@@ -61,15 +61,15 @@ const github = meta.github ?? '';
             View on GitHub
           </CTAButton>
         ) : (
-          <p class="text-xs text-[color:var(--color-text-muted)]">GitHub link coming soon.</p>
+          <p class="text-xs text-[var(--color-text-muted)]">GitHub link coming soon.</p>
         )}
       </aside>
     </section>
 
     {outcomes.length > 0 && (
       <section class="space-y-3">
-        <h2 class="text-2xl font-semibold text-[color:var(--color-text)]">Outcomes</h2>
-        <ul class="list-disc space-y-2 pl-6 text-[color:var(--color-text-muted)]">
+        <h2 class="text-2xl font-semibold text-[var(--color-text)]">Outcomes</h2>
+        <ul class="list-disc space-y-2 pl-6 text-[var(--color-text-muted)]">
           {outcomes.map((item) => (
             <li>{item}</li>
           ))}
@@ -82,7 +82,7 @@ const github = meta.github ?? '';
         <Content />
       </section>
     ) : (
-      <section class="rounded-2xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-6 text-sm text-[color:var(--color-text-muted)]">
+      <section class="rounded-2xl border border-dashed border-[var(--color-border)] bg-[var(--color-surface-alt)] p-6 text-sm text-[var(--color-text-muted)]">
         Detailed write-up coming soon. In the meantime, explore the repository for implementation notes and code examples.
       </section>
     )}

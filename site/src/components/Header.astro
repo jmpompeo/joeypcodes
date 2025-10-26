@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="backdrop-blur supports-[backdrop-filter]:backdrop-blur" style="background-color: var(--color-surface); border-bottom: 1px solid var(--color-border);">
-  <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4 text-[color:var(--color-text)]">
+  <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4 text-[var(--color-text)]">
     <a class="text-lg font-semibold tracking-wide" href="/" aria-label="Joey P Codes home" style="color: var(--color-text);">
       Joey P Codes
     </a>
@@ -26,8 +26,8 @@ const currentPath = Astro.url.pathname;
             class:list={[
               'transition-colors duration-150',
               isActive
-                ? 'text-[color:var(--color-accent)]'
-                : 'text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] focus-visible:text-[color:var(--color-accent)]',
+                ? 'text-[var(--color-accent)]'
+                : 'text-[var(--color-text-muted)] hover:text-[var(--color-accent)] focus-visible:text-[var(--color-accent)]',
             ]}
             href={href}
           >

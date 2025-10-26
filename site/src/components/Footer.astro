@@ -14,12 +14,12 @@ type IconKey = keyof typeof iconMap;
 const socials: Array<{ label: string; href: string; icon: IconKey }> = [
   {
     label: 'GitHub',
-    href: 'https://github.com/joeypcodes',
+    href: 'https://github.com/jmpompeo',
     icon: 'github',
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/joeypompeo/',
+    href: 'https://www.linkedin.com/in/joseph-pompeo/',
     icon: 'linkedin',
   },
 ];
@@ -35,7 +35,7 @@ const socials: Array<{ label: string; href: string; icon: IconKey }> = [
           return (
             <li>
               <a
-                class="flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors duration-150 border-[color:var(--color-border)] text-[color:var(--color-text)] hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)] focus-visible:border-[color:var(--color-accent)] focus-visible:text-[color:var(--color-accent)]"
+                class="flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors duration-150 border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] focus-visible:border-[var(--color-accent)] focus-visible:text-[var(--color-accent)]"
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"

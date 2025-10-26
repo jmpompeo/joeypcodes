@@ -30,9 +30,9 @@ const tags = Array.from(new Set(posts.flatMap((post) => post.tags))).sort((a, b)
 >
   <section class="space-y-10">
     <header class="space-y-4">
-      <p class="text-xs uppercase tracking-[0.3em] text-[color:var(--color-accent)]">Blog</p>
-      <h1 class="text-4xl font-bold text-[color:var(--color-text)] md:text-5xl">Latest writing</h1>
-      <p class="max-w-prose text-[color:var(--color-text-muted)]">
+      <p class="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)]">Blog</p>
+      <h1 class="text-4xl font-bold text-[var(--color-text)] md:text-5xl">Latest writing</h1>
+      <p class="max-w-prose text-[var(--color-text-muted)]">
         Articles focus on applying Azure, CI/CD, and automation in the real world. Tag filters are a planned enhancement —
         for now, browse the topics that interest you most.
       </p>
@@ -43,7 +43,7 @@ const tags = Array.from(new Set(posts.flatMap((post) => post.tags))).sort((a, b)
         {tags.map((tag) => (
           <button
             type="button"
-            class="cursor-default rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-2 text-xs uppercase tracking-wide text-[color:var(--color-text-muted)]"
+            class="cursor-default rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-xs uppercase tracking-wide text-[var(--color-text-muted)]"
             aria-disabled="true"
           >
             {tag}
@@ -51,7 +51,7 @@ const tags = Array.from(new Set(posts.flatMap((post) => post.tags))).sort((a, b)
         ))}
       </div>
     ) : (
-      <p class="text-sm text-[color:var(--color-text-muted)]">Posts will be tagged as new articles are published.</p>
+      <p class="text-sm text-[var(--color-text-muted)]">Posts will be tagged as new articles are published.</p>
     )}
 
     {posts.length > 0 ? (
@@ -61,7 +61,7 @@ const tags = Array.from(new Set(posts.flatMap((post) => post.tags))).sort((a, b)
         ))}
       </div>
     ) : (
-      <p class="rounded-2xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-surface-alt)] p-6 text-sm text-[color:var(--color-text-muted)]">
+      <p class="rounded-2xl border border-dashed border-[var(--color-border)] bg-[var(--color-surface-alt)] p-6 text-sm text-[var(--color-text-muted)]">
         No posts are published yet. Check back soon for new articles.
       </p>
     )}
