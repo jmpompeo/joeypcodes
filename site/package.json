@@ -17,7 +17,7 @@
     "a11y:ci": "sh -c \"npm run preview -- --host 127.0.0.1 --port 4173 --silent & PREVIEW_PID=$!; npx wait-on http://127.0.0.1:4173 && pa11y-ci --config .pa11yci.json; EXIT=$?; kill $PREVIEW_PID >/dev/null 2>&1 || true; exit $EXIT\""
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.4",
+    "@astrojs/check": "^0.9.5",
     "@astrojs/tailwind": "^5.1.0",
     "@tailwindcss/typography": "^0.5.10",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
