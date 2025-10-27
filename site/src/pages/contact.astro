@@ -2,7 +2,7 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import CTAButton from '../components/CTAButton.astro';
 
-const email = 'hello@joeypcodes.com';
+const email = 'joeypompeo@gmail .com';
 ---
 
 <PageLayout
@@ -10,21 +10,21 @@ const email = 'hello@joeypcodes.com';
   description="Reach out with the problem you’re solving, and I’ll follow up within one business day."
   eyebrow="Contact"
 >
-  <div class="flex flex-col gap-8">
+  <div class="flex flex-col gap-8 text-[var(--color-text-muted)]">
     <CTAButton href={`mailto:${email}`} variant="primary" size="lg">
-      Email {email}
+      Email me!
     </CTAButton>
-    <p class="max-w-prose text-text-light/80">
+    <p class="max-w-prose">
       Prefer async collaboration? Include context, timelines, and any reference materials. I work best when
       I understand the constraints and desired outcomes up front.
     </p>
-    <div class="space-y-3 text-sm text-text-light/70">
+    <div class="space-y-3 text-sm">
       <p>Available for:</p>
       <ul class="grid gap-2 md:grid-cols-2">
-        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3">Azure automation projects</li>
-        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3">.NET API development</li>
-        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3">CI/CD pipeline audits</li>
-        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3">DevOps enablement workshops</li>
+        <li class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3">Azure automation projects</li>
+        <li class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3">.NET/C# Development</li>
+        <li class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3">CI/CD pipeline audits</li>
+        <li class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3">DevOps enablement workshops</li>
       </ul>
     </div>
   </div>

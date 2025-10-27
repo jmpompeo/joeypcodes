@@ -78,6 +78,16 @@ joeypcodes/
   - Blog: Post index with tag filter (search deferred)
   - Contact: `mailto:` link plus GitHub/LinkedIn icons
 
+# Content Fix Strategy
+
+- Replace markdown project entries with a typed data source (`src/data/projects.ts`) that maps to Joey’s public repositories:
+  - `jmpompeo/CompoundInterestCalculator`
+  - `jmpompeo/unit-test-improvements`
+  - `jmpompeo/joeypcodes`
+- Augment project layouts to consume repository metadata (name, description, tech stack, outcomes, GitHub URL); ensure defensive checks for missing fields to avoid runtime errors.
+- Ensure Astro content queries for posts and projects guard against absent `data` properties by using type-safe accessors and fallback messaging.
+- Keep markdown posts but validate frontmatter fields (`title`, `description`, `tags`, `published`) with stricter schemas to prevent undefined values during rendering.
+
 # Color & Typography Tokens
 
 | Token | Value | Description |
@@ -104,6 +114,18 @@ npm run dev
 3. Build command: `npm run build`.
 4. Publish directory: `dist/`.
 5. Use Node.js 18 or later.
+
+## Continuous Integration
+
+- Add a GitHub Actions workflow at `.github/workflows/ci.yml`.
+- Trigger the workflow on `pull_request` events where `base` is `main`.
+- Steps:
+  1. Checkout repository and set up Node.js 18.x.
+  2. Install dependencies with `npm ci`.
+  3. Run `npm run build` to compile the Astro site.
+  4. Run `npm audit --production` to surface dependency vulnerabilities; fail the job on findings.
+  5. Upload build artifacts (optional) for preview if needed.
+- Complement the audit step with repository-level Dependabot alerts; ensure Dependabot is enabled for npm ecosystem.
 
 # Quality Checks
 

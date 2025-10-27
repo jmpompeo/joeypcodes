@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
 title: DevOps Observability Dashboard
 summary: A real-time dashboard surfacing deployment health, pipeline throughput, and error insights across distributed services.
 role: Platform Engineer

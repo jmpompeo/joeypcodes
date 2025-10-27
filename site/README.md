@@ -27,6 +27,8 @@ Open `http://localhost:4321` to explore the site locally. Content lives in `src/
 | `npm run lint` | Lint `.astro` and TypeScript files |
 | `npm run format` | Check formatting with Prettier |
 | `npm run format:write` | Format project files in place |
+| `npm run a11y` | Build then run pa11y-ci accessibility audits locally |
+| `npm run a11y:ci` | Run pa11y-ci using `.pa11yci.json` (used in CI) |
 
 ## Content Model
 
@@ -57,6 +59,7 @@ Open `http://localhost:4321` to explore the site locally. Content lives in `src/
 - Semantic headings and navigation structures
 - Keyboard accessible focus states and theme toggle
 - Skip link leading to the main content region
+- Dual theme color tokens meeting WCAG 2.1 AA contrast, verified via `npm run a11y`
 
 ## Performance Notes
 

@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
 title: Serverless Automation Toolkit
 summary: A reusable toolkit for streamlining DevOps automation using Azure Functions, durable workflows, and GitHub Actions integrations.
 role: Lead Engineer

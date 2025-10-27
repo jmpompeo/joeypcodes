@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 60000,
+    "wait": 1000,
+    "screenCapture": false
+  },
+  "urls": [
+    "http://127.0.0.1:4173/",
+    "http://127.0.0.1:4173/projects",
+    "http://127.0.0.1:4173/projects/compound-interest-calculator",
+    "http://127.0.0.1:4173/projects/unit-test-improvements",
+    "http://127.0.0.1:4173/projects/joeypcodes",
+    "http://127.0.0.1:4173/blog",
+    "http://127.0.0.1:4173/about",
+    "http://127.0.0.1:4173/contact"
+  ],
+  "server": {
+    "command": "npm run preview -- --host 127.0.0.1 --port 4173",
+    "launchTimeout": 60000,
+    "ready": "Local",
+    "port": 4173
+  },
+  "chromeLaunchConfig": {
+    "args": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  }
+}
