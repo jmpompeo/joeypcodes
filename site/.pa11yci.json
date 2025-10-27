@@ -20,5 +20,11 @@
     "launchTimeout": 60000,
     "ready": "Local",
     "port": 4173
+  },
+  "chromeLaunchConfig": {
+    "args": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   }
 }
