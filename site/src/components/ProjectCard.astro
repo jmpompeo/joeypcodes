@@ -10,20 +10,20 @@ const { project } = Astro.props as Props;
 const { title, summary, tags = [], role, github } = project;
 ---
 
-<article class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-surface-dark/70 p-6 shadow-lg shadow-black/10 transition hover:border-primary focus-within:border-primary">
+<article class="flex flex-col gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-lg shadow-black/10 transition hover:border-[var(--color-accent)] focus-within:border-[var(--color-accent)]">
   <header class="space-y-2">
-    <h3 class="text-xl font-semibold text-white">{title}</h3>
-    <p class="text-sm text-text-light/80">{summary}</p>
+    <h3 class="text-xl font-semibold text-[var(--color-text)]">{title}</h3>
+    <p class="text-sm text-[var(--color-text-muted)]">{summary}</p>
   </header>
   {tags.length > 0 && (
-    <div class="flex flex-wrap gap-2 text-xs uppercase tracking-wide text-text-light/70">
+    <div class="flex flex-wrap gap-2 text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
       {tags.map((tag) => (
-        <span class="rounded-full border border-white/10 px-3 py-1">{tag}</span>
+        <span class="rounded-full border border-[var(--color-border)] px-3 py-1">{tag}</span>
       ))}
     </div>
   )}
   <footer class="mt-auto flex items-center justify-between gap-3">
-    <span class="text-sm text-text-light/70">Role: {role}</span>
+    <span class="text-sm text-[var(--color-text-muted)]">Role: {role}</span>
     {github ? (
       <CTAButton href={github} size="sm" variant="secondary" target="_blank" rel="noreferrer">
         GitHub ↗

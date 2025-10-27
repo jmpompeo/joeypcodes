@@ -4,7 +4,7 @@ const label = 'Toggle site theme';
 
 <button
   type="button"
-  class="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-surface-dark/80 text-lg transition hover:border-primary focus-visible:border-primary"
+  class="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface-alt)] text-lg text-[var(--color-text)] transition-colors duration-150 hover:border-[var(--color-accent)] focus-visible:border-[var(--color-accent)]"
   data-theme-toggle
   aria-label={label}
 >
@@ -14,41 +14,54 @@ const label = 'Toggle site theme';
 <script is:inline>
   const STORAGE_KEY = 'jp-theme-preference';
   const root = document.documentElement;
-  const toggle = document.querySelector('[data-theme-toggle]');
-  const icon = document.querySelector('[data-theme-icon]');
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-  const applyTheme = (theme) => {
+  const applyTheme = (theme, iconEl, toggleEl) => {
     if (theme === 'light') {
       root.classList.add('theme-light');
-      icon?.textContent = '☀️';
+      iconEl.textContent = '☀️';
     } else {
       root.classList.remove('theme-light');
-      icon?.textContent = '🌙';
+      iconEl.textContent = '🌙';
     }
-    toggle?.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+    toggleEl.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
   };
 
-  const getSystemPreference = () => (
-    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  );
+  const resolveInitialTheme = () => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'light' || stored === 'dark') {
+      return stored;
+    }
+    return mediaQuery.matches ? 'dark' : 'light';
+  };
 
-  const stored = localStorage.getItem(STORAGE_KEY);
-  const initialTheme = stored ?? getSystemPreference();
-  applyTheme(initialTheme);
+  const init = () => {
+    const toggle = document.querySelector('[data-theme-toggle]');
+    const icon = document.querySelector('[data-theme-icon]');
+    if (!toggle || !icon) {
+      return;
+    }
 
-  toggle?.addEventListener('click', () => {
-    const nextTheme = root.classList.contains('theme-light') ? 'dark' : 'light';
-    applyTheme(nextTheme);
-    localStorage.setItem(STORAGE_KEY, nextTheme);
-  });
+    applyTheme(resolveInitialTheme(), icon, toggle);
 
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', (event) => {
-      const storedTheme = localStorage.getItem(STORAGE_KEY);
-      if (storedTheme) {
+    toggle.addEventListener('click', () => {
+      const nextTheme = root.classList.contains('theme-light') ? 'dark' : 'light';
+      applyTheme(nextTheme, icon, toggle);
+      localStorage.setItem(STORAGE_KEY, nextTheme);
+    });
+
+    mediaQuery.addEventListener('change', (event) => {
+      if (localStorage.getItem(STORAGE_KEY)) {
         return;
       }
-      applyTheme(event.matches ? 'dark' : 'light');
+      const preferred = event.matches ? 'dark' : 'light';
+      applyTheme(preferred, icon, toggle);
     });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
 </script>

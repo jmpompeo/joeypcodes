@@ -19,20 +19,20 @@ const publishedDate = published.toLocaleDateString(undefined, {
 });
 ---
 
-<article class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-surface-dark/70 p-5 transition hover:border-primary focus-within:border-primary">
+<article class="flex flex-col gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition hover:border-[var(--color-accent)] focus-within:border-[var(--color-accent)]">
   <header class="space-y-1">
-    <p class="text-xs uppercase tracking-wide text-text-light/60">{publishedDate}</p>
-    <h3 class="text-lg font-semibold text-white">
-      <a class="transition hover:text-primary focus-visible:text-primary" href={`/posts/${slug}`}>
+    <p class="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">{publishedDate}</p>
+    <h3 class="text-lg font-semibold text-[var(--color-text)]">
+      <a class="transition-colors duration-150 text-[var(--color-text)] hover:text-[var(--color-accent)] focus-visible:text-[var(--color-accent)]" href={`/posts/${slug}`}>
         {title}
       </a>
     </h3>
   </header>
-  <p class="text-sm text-text-light/80">{description}</p>
+  <p class="text-sm text-[var(--color-text-muted)]">{description}</p>
   {tags.length > 0 && (
-    <ul class="mt-auto flex flex-wrap gap-2 text-xs uppercase tracking-wide text-text-light/70">
+    <ul class="mt-auto flex flex-wrap gap-2 text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
       {tags.map((tag) => (
-        <li class="rounded-full border border-white/10 px-3 py-1">{tag}</li>
+        <li class="rounded-full border border-[var(--color-border)] px-3 py-1">{tag}</li>
       ))}
     </ul>
   )}
