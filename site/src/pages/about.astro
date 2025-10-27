@@ -5,10 +5,10 @@ import CTAButton from '../components/CTAButton.astro';
 
 <PageLayout
   title="Building secure, automated solutions in Azure"
-  description="I’m Joey Pompeo, a .NET developer focused on clean code, automation, and helping teams ship faster with confidence."
+  description=".NET developer focused on clean code, automation, and helping teams ship faster with confidence."
   eyebrow="About Joey"
 >
-  <div class="space-y-8 text-text-light/80">
+  <div class="space-y-8 text-[var(--color-text-muted)]">
     <section class="space-y-4">
       <p>
         I’m Joey Pompeo, a .NET developer focused on building secure, automated solutions in Azure. I’ve spent the last
@@ -22,24 +22,24 @@ import CTAButton from '../components/CTAButton.astro';
     </section>
 
     <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-white">Certifications</h2>
+      <h2 class="text-2xl font-semibold text-[var(--color-text)]">Certifications</h2>
       <ul class="grid gap-3 md:grid-cols-2">
-        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3 text-sm text-text-light/80">
+        <li class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text-muted)]">
           AZ-104 — Microsoft Certified Azure Administrator Associate
         </li>
-        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3 text-sm text-text-light/80">
+        <li class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text-muted)]">
           AZ-204 — Developing Solutions for Microsoft Azure
         </li>
-        <li class="rounded-xl border border-white/10 bg-surface-dark/70 px-4 py-3 text-sm text-text-light/80">
+        <li class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text-muted)]">
           AZ-400 — Designing and Implementing Microsoft DevOps Solutions
         </li>
       </ul>
     </section>
 
     <section class="space-y-3">
-      <h2 class="text-2xl font-semibold text-white">Résumé</h2>
+      <h2 class="text-2xl font-semibold text-[var(--color-text)]">Resume</h2>
       <CTAButton href="/assets/Joey-Pompeo-Resume.pdf" download variant="secondary">
-        Download Résumé (PDF)
+        Download Resume (PDF)
       </CTAButton>
     </section>
   </div>

@@ -1,6 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import type { AstroComponentFactory } from 'astro/runtime/server';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import { projects } from '../../data/projects';
 import type { ProjectMeta } from '../../data/projects';
@@ -26,7 +27,7 @@ const { meta, entry } = Astro.props as {
   entry: CollectionEntry<'projects'> | null;
 };
 
-let Content: any = null;
+let Content: AstroComponentFactory | null = null;
 if (entry) {
   ({ Content } = await entry.render());
 }

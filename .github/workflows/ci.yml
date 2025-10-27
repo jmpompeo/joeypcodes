@@ -28,6 +28,10 @@ jobs:
         working-directory: site
         run: npm run build
 
+      - name: Run accessibility audit
+        working-directory: site
+        run: npm run a11y:ci
+
       - name: Audit production dependencies
         working-directory: site
         run: npm audit --production

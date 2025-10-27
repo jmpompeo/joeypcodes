@@ -8,6 +8,8 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 'latest',
+    project: ['./tsconfig.json'],
+    tsconfigRootDir: __dirname,
   },
   plugins: ['@typescript-eslint', 'jsx-a11y'],
   extends: [
@@ -24,6 +26,8 @@ module.exports = {
       parserOptions: {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: __dirname,
       },
       rules: {
         'jsx-a11y/no-onchange': 'off',

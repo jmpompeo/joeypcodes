@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
 title: Compound Interest Calculator
 summary: An Azure Function powered calculator that helps users explore investment growth scenarios with configurable schedules and contribution logic.
 role: Creator
